@@ -31,6 +31,9 @@ public class Magpie2
 	public String getResponse(String statement)
 	{
 		String response = "";
+
+        statement = statement.trim();
+
 		if (statement.indexOf("no") >= 0)
 		{
 			response = "Why so negative?";
@@ -53,10 +56,23 @@ public class Magpie2
         {
             response = "She sounds like a good teacher";
         }
-        else if (statement.indexOf("")  >= 0)
+        else if (statement.length() == 0)
         {
             response = "Say something, please";
         }
+        else if (statement.indexOf("ball")  >= 0)
+        {
+            response = "What sport do you play?";
+        }
+        else if (statement.indexOf("school")  >= 0)
+        {
+            response = "Do you like your classes?";
+        }
+        else if (statement.indexOf("friend")  >= 0)
+        {
+            response = "What is your friends name?";
+        }
+
 
 
         else if (statement.indexOf("mother") >= 0
@@ -79,7 +95,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6 ;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -100,7 +116,17 @@ public class Magpie2
 		{
 			response = "You don't say.";
 		}
+        else if (whichResponse == 4)
+        {
+            response = "I never knew that.";
+        }
+        else if (whichResponse == 5)
+        {
+            response = "That's nice.";
+        }
 
-		return response;
+
+
+        return response;
 	}
 }
